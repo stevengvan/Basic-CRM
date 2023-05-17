@@ -72,7 +72,7 @@ app.post("/customers/add", async (req, res) => {
       return;
     });
 
-  res.status(200).send("Added customer");
+  res.status(200).send(`Added customer: ${customerID.insertedId}`);
 });
 
 // Apply info changes to customer in MongoDB

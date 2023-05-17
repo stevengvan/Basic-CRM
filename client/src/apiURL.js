@@ -1,5 +1,5 @@
 import axios from "axios";
-const baseURL = "http://localhost:3000/customers";
+const baseURL = "https://basic-crm-server.onrender.com/customers";
 
 export default {
   // Retrieve all customers
@@ -11,6 +11,7 @@ export default {
   // Add a customer to the list
   async addCustomer(customer) {
     let res = await axios.post(`${baseURL}/add`, customer);
+    console.log(res);
     return res.data;
   },
 
