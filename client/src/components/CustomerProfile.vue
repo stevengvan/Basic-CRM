@@ -12,6 +12,7 @@ const currentDate = new Date().toLocaleDateString("en-IN");
 const deletePopup = ref(false);
 const editMode = ref(false);
 
+// Keyboard focus when opening profile
 onMounted(() => {
   document.getElementById("close-button").focus();
 });

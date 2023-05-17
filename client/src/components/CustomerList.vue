@@ -2,12 +2,14 @@
 import { reactive, ref, watchEffect, onBeforeMount } from "vue";
 import { useWindowSize } from "@vueuse/core";
 import { customersData } from "./customersData";
+import ApiService from "../apiURL";
 import { showInfo } from "./showInfo";
 import CustomerEntry from "./CustomerEntry.vue";
 
 // Customers data
+customersData.list = await ApiService.getAllCustomers();
 const customers = reactive({
-  list: customersData.list,
+  list: await ApiService.getAllCustomers(),
   newList(value) {
     this.list = [...value];
 
@@ -22,7 +24,7 @@ const customers = reactive({
 });
 
 // Customers listing by 10s
-const totalCustomers = ref(customersData.list.length);
+const totalCustomers = ref(customers.list.length);
 const remainder = ref(totalCustomers.value % 10);
 const lastPage = ref(
   remainder.value === 0

@@ -1,9 +1,14 @@
 <script setup>
-import { ref } from "vue";
+import { ref, onMounted } from "vue";
 import ApiService from "../apiURL";
 import { viewAddCustomer } from "./viewAddCustomer";
 import Modal from "./Modal.vue";
 import CloseIcon from "./icons/IconClose.vue";
+
+// Keyboard focus when opening add customer form
+onMounted(() => {
+  document.getElementById("close-button").focus();
+});
 
 const avatar = ref(null);
 const name = ref(null);
@@ -57,7 +62,7 @@ function closeForm() {
     <div id="form-container" @click.stop>
       <!-- Close button -->
       <div id="close-section">
-        <button @:click="() => closeForm()">
+        <button id="close-button" @:click="() => closeForm()">
           <CloseIcon height="40px" width="40px" />
         </button>
       </div>
@@ -133,7 +138,8 @@ function closeForm() {
   display: flex;
   justify-content: flex-end;
 }
-#close-section > button {
+
+#close-button {
   background-color: transparent !important;
   padding: 0.25rem;
   border: none;
