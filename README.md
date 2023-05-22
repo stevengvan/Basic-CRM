@@ -31,6 +31,8 @@ The following items are required before proceeding:
 - Create a database and collection
 - Create Cloudinary account
 
+Note that when creating a database and collection, you will need to whitelist your IP address. Document on this process is found [here](https://www.mongodb.com/docs/atlas/security/add-ip-address-to-list/).
+
 Install all packages for client and server folders using the command below:
 
 ```sh
