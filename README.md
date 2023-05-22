@@ -7,6 +7,8 @@ A simple customer relation management system that allows the user to add, remove
 A website was made that deploys the repo. It can be found in the following link:
 [https://stevengvan-basic-crm.netlify.app](https://stevengvan-basic-crm.netlify.app) Please do not add actual information to the application as this project was only made for learning.
 
+Note that the data will not load at first when first visiting the site due to the server needing to startup in Render. It may take up to two mintues for the server to go live.
+
 ## Running the app locally
 
 If forking the repo, note that frontend and backend components of the app are separated into two different folders. The client folder focuses on the frontend aspect, while the server folder focuses on the backend.
