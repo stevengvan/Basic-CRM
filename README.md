@@ -39,8 +39,6 @@ npm install
 
 The main backend script will be `server.js`. An env file will need to be made with the following variables:
 
-- NODE_ENV_MONGODB_USER : MongoDB Atlas username
-- NODE_ENV_MONGODB_PASSWORD : MongoDB Atlas password
 - NODE_ENV_MONGODB_URL : [MongoDB Cluster URL](https://www.mongodb.com/docs/drivers/node/current/quick-start/create-a-connection-string/#std-label-node-quick-start-connection-string)
 - NODE_ENV_MONGODB_DB: MongoDB Database's name
 - NODE_ENV_MONGODB_COLLECTION: MongoDB Collection's name
