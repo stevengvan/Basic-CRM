@@ -30,12 +30,13 @@ const updateCustomer = async () => {
     phone: document.getElementById("phone").value,
     email: document.getElementById("email").value,
   };
-  await ApiService.updateCustomer(values);
-  window.location.reload();
+  ApiService.updateCustomer(values).then(() => window.location.reload());
 };
 
 const deleteCustomer = async () => {
-  await ApiService.deleteCustomer(customerData.id);
+  ApiService.deleteCustomer(customerData.id).then(() =>
+    window.location.reload()
+  );
 };
 </script>
 
@@ -48,7 +49,7 @@ const deleteCustomer = async () => {
           <p>Are you sure you want to remove this customer?</p>
           <form id="delete-options">
             <input type="button" value="Cancel" @click="deletePopup = false" />
-            <input type="submit" value="Delete" @click="deleteCustomer()" />
+            <input type="button" value="Delete" @click="deleteCustomer()" />
           </form>
         </div>
       </div>

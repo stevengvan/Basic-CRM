@@ -49,7 +49,7 @@ function submitCustomer() {
     last_visit: today,
     notes: [],
   };
-  ApiService.addCustomer(newCustomer);
+  ApiService.addCustomer(newCustomer).then(() => window.location.reload());
 }
 
 function closeForm() {
@@ -97,7 +97,15 @@ function closeForm() {
 
           <div>
             <label for="phone">Phone:</label>
-            <input type="tel" required name="phone" id="phone" />
+            <input
+              type="tel"
+              required
+              name="phone"
+              id="phone"
+              maxlength="10"
+              minlength="10"
+              placeholder="Ex. 1234567890"
+            />
           </div>
 
           <div>
@@ -109,7 +117,7 @@ function closeForm() {
           </div>
 
           <input
-            type="submit"
+            type="button"
             id="submit"
             value="Submit"
             @click="() => submitCustomer()"

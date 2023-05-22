@@ -31,22 +31,21 @@ const addNote = async () => {
     alert("Text must be provided when adding a note");
     return;
   }
-  await ApiService.addNote(id, note);
-  window.location.reload();
+  ApiService.addNote(id, note).then(() => window.location.reload());
 };
 
 const deleteNote = async (noteID) => {
   console.log("Deleting note", noteID);
-  await ApiService.deleteNote(id, noteID);
-  window.location.reload();
+  ApiService.deleteNote(id, noteID).then(() => window.location.reload());
 };
 
 const updateNote = async (noteID) => {
   const newNote = document.getElementById("edit-note").value;
   if (newNote !== editNote.value.old) {
     console.log("Updating note", noteID);
-    ApiService.updateNote(id, noteID, newNote);
-    window.location.reload();
+    ApiService.updateNote(id, noteID, newNote).then(() =>
+      window.location.reload()
+    );
   } else {
     alert(
       "No changes on note detected, cancel or change the note text to submit"

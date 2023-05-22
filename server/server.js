@@ -1,4 +1,5 @@
 // Basic setup for packages used
+process.env.NODE_ENV = "production";
 const express = require("express");
 const app = express();
 const bodyParser = require("body-parser");
@@ -16,8 +17,7 @@ cloudinary.config({
 });
 
 // MongoDB Atlas Configuration
-const uri = `mongodb+srv://${process.env.NODE_ENV_MONGODB_USER}:${process.env.NODE_ENV_MONGODB_PASSWORD}@crm-test.gcgdhi6.mongodb.net/?retryWrites=true&w=majority`;
-const client = new MongoClient(uri);
+const client = new MongoClient(process.env.NODE_ENV_MONGODB_URL);
 
 // Express setup
 app.use(bodyParser.json({ limit: "60mb" }));

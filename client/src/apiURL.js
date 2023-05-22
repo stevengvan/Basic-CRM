@@ -1,5 +1,6 @@
 import axios from "axios";
 const baseURL = "https://basic-crm-server.onrender.com/customers";
+// const baseURL = "http://localhost:3000/customers";
 
 export default {
   // Retrieve all customers
