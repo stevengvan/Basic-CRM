@@ -1,5 +1,5 @@
 // Basic setup for packages used
-process.env.NODE_ENV = "production";
+// process.env.NODE_ENV = "production";
 const express = require("express");
 const app = express();
 const bodyParser = require("body-parser");
@@ -31,7 +31,7 @@ app.get("/customers/all", async (req, res) => {
   let list = [];
   await client
     .db(process.env.NODE_ENV_MONGODB_DB)
-    .collection(process.env.NODE_ENV_MONGODB_COLLECTION)
+    .collection("customer")
     .find()
     .forEach((element) => {
       list.push(element);
@@ -43,9 +43,7 @@ app.get("/customers/all", async (req, res) => {
 app.post("/customers/add", async (req, res) => {
   // Add new customer to MongoDB
   client.connect();
-  const DB = client
-    .db(process.env.NODE_ENV_MONGODB_DB)
-    .collection(process.env.NODE_ENV_MONGODB_COLLECTION);
+  const DB = client.db(process.env.NODE_ENV_MONGODB_DB).collection("customer");
   const customerID = await DB.insertOne(req.body).catch((err) => {
     console.log(err);
     res.status(500).send(err);
@@ -80,9 +78,7 @@ app.put("/customers/update", async (req, res) => {
   const customerData = req.body.data;
 
   client.connect();
-  const DB = client
-    .db(process.env.NODE_ENV_MONGODB_DB)
-    .collection(process.env.NODE_ENV_MONGODB_COLLECTION);
+  const DB = client.db(process.env.NODE_ENV_MONGODB_DB).collection("customer");
   await DB.updateOne(
     { _id: new ObjectId(String(customerData.id)) },
     {
@@ -109,7 +105,7 @@ app.delete("/customers/delete/", async (req, res) => {
     client.connect();
     const dbResult = await client
       .db(process.env.NODE_ENV_MONGODB_DB)
-      .collection(process.env.NODE_ENV_MONGODB_COLLECTION)
+      .collection("customer")
       .deleteOne({ _id: new ObjectId(req.body.id) });
     if (dbResult.acknowledged) {
       // Delete avatar in Cloudinary
@@ -132,7 +128,7 @@ app.put("/customers/notes/add", async (req, res) => {
   client.connect();
   await client
     .db(process.env.NODE_ENV_MONGODB_DB)
-    .collection(process.env.NODE_ENV_MONGODB_COLLECTION)
+    .collection("customer")
     .updateOne(
       { _id: new ObjectId(req.body.data.id) },
       {
@@ -154,7 +150,7 @@ app.put("/customers/notes/delete", async (req, res) => {
   client.connect();
   await client
     .db(process.env.NODE_ENV_MONGODB_DB)
-    .collection(process.env.NODE_ENV_MONGODB_COLLECTION)
+    .collection("customer")
     .updateOne(
       { _id: new ObjectId(req.body.data.customerID) },
       { $pull: { notes: { id: req.body.data.noteID } } }
@@ -167,7 +163,7 @@ app.put("/customers/notes/update", async (req, res) => {
   client.connect();
   await client
     .db(process.env.NODE_ENV_MONGODB_DB)
-    .collection(process.env.NODE_ENV_MONGODB_COLLECTION)
+    .collection("customer")
     .updateOne(
       {
         _id: new ObjectId(req.body.data.customerID),
@@ -176,4 +172,18 @@ app.put("/customers/notes/update", async (req, res) => {
       { $set: { "notes.$.text": req.body.data.newText } }
     );
   return res.status(200).send("Removed a note");
+});
+
+// Retrieve all appointments
+app.get("/appointments/all", async (req, res) => {
+  let list = {};
+  client.connect();
+  await client
+    .db(process.env.NODE_ENV_MONGODB_DB)
+    .collection("appointment")
+    .find()
+    .forEach((element) => {
+      list[element.date] = element.list;
+    });
+  res.status(200).send(list);
 });
