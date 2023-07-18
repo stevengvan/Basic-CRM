@@ -45,7 +45,6 @@ The main backend script will be `server.js`. An env file will need to be made wi
 
 - NODE_ENV_MONGODB_URL : [MongoDB Cluster URL](https://www.mongodb.com/docs/drivers/node/current/quick-start/create-a-connection-string/#std-label-node-quick-start-connection-string)
 - NODE_ENV_MONGODB_DB: MongoDB Database's name
-- NODE_ENV_MONGODB_COLLECTION: MongoDB Collection's name
 - NODE_ENV_CLOUDINARY_NAME: [Cloudinary environment name](https://cloudinary.com/documentation/cloudinary_credentials_tutorial#video_tutorial)
 - NODE_ENV_CLOUDINARY_API_KEY: [Cloudinary API key](https://cloudinary.com/documentation/cloudinary_credentials_tutorial#video_tutorial)
 - NODE_ENV_CLOUDINARY_API_SECRET: [Cloudinary Secret key](https://cloudinary.com/documentation/cloudinary_credentials_tutorial#video_tutorial)
