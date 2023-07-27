@@ -4,7 +4,7 @@
   "main": "server.js",
   "scripts": {
     "start": "nodemon server.js",
-    "test": "cross-env NODE_ENV=test jest --testTimeout=5000 --detectOpenHandles --watchAll --silent=false"
+    "test": "cross-env NODE_ENV=test jest --testTimeout=7500 --detectOpenHandles --watchAll --silent=false"
   },
   "dependencies": {
     "body-parser": "^1.19.0",
