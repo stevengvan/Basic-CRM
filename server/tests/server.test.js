@@ -3,7 +3,7 @@ const fs = require("fs");
 const app = require("../server");
 const { MongoClient } = require("mongodb");
 
-if (process.env.NODE_ENV === "development") {
+if (process.env.NODE_ENV !== "production") {
   require("dotenv").config();
 }
 const client = new MongoClient(process.env.NODE_ENV_MONGODB_URL);

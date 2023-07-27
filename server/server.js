@@ -6,7 +6,7 @@ const cors = require("cors");
 const mongoUtil = require("./mongoUtil");
 const PORT = process.env.PORT || 3000;
 
-if (process.env.NODE_ENV === "development") {
+if (process.env.NODE_ENV !== "production") {
   require("dotenv").config();
 }
 
