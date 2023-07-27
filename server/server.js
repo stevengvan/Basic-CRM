@@ -3,9 +3,12 @@ const express = require("express");
 const app = express();
 const bodyParser = require("body-parser");
 const cors = require("cors");
-require("dotenv").config();
 const mongoUtil = require("./mongoUtil");
 const PORT = process.env.PORT || 3000;
+
+if (process.env.NODE_ENV === "development") {
+  require("dotenv").config();
+}
 
 mongoUtil.connect;
 
