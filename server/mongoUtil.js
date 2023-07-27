@@ -1,5 +1,7 @@
 const { MongoClient } = require("mongodb");
-require("dotenv").config();
+if (process.env.NODE_ENV === "development") {
+  require("dotenv").config();
+}
 
 const client = new MongoClient(process.env.NODE_ENV_MONGODB_URL);
 
