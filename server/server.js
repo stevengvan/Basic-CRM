@@ -10,7 +10,15 @@ if (process.env.NODE_ENV !== "production") {
   require("dotenv").config();
 }
 
-mongoUtil.connect;
+mongoUtil.client.connect((err) => {
+  if (err) {
+    console.error(err);
+    return false;
+  }
+  if (process.env.NODE_ENV !== "test") {
+    app.listen(PORT, () => console.log(`Server is live at port ${PORT}`));
+  }
+});
 
 // Express setup
 app.use(cors());
