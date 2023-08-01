@@ -9,16 +9,16 @@ const PORT = process.env.PORT || 3000;
 if (process.env.NODE_ENV !== "production") {
   require("dotenv").config();
 }
-
-mongoUtil.client.connect((err) => {
-  if (err) {
-    console.error(err);
-    return false;
-  }
-  if (process.env.NODE_ENV !== "test") {
-    app.listen(PORT, () => console.log(`Server is live at port ${PORT}`));
-  }
-});
+if (process)
+  mongoUtil.client.connect((err) => {
+    if (err) {
+      console.error(err);
+      return false;
+    }
+    if (process.env.NODE_ENV !== "test") {
+      app.listen(PORT, () => console.log(`Server is live at port ${PORT}`));
+    }
+  });
 
 // Express setup
 app.use(cors());

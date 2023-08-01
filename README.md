@@ -1,13 +1,15 @@
 # Basic CRM
 
-A simple customer relation management system that allows the user to add, remove, and update customers. This was built with the MEVN stack (MongoDB, Express, Vue, and Node) and is deployed on Netlify for the frontend and Render for the backend. Additionally all images are uploaded to Cloudinary. The project was made to learn how to use Vue at first, but grew into learning how to use MongoDB with Vue.
+A simple customer relation management system that allows the user to add, remove, and update customers. This was built with the MEVN stack (MongoDB, Express, Vue, and Node) and is deployed on Netlify for the frontend and originally Render for the backend (now uses Adaptable). Additionally all images are uploaded to Cloudinary. The project was made to learn how to use Vue at first, but grew into learning how to use MongoDB with Vue.
 
 ## Demo
 
 A website was made that deploys the repo. It can be found in the following link:
 [https://stevengvan-basic-crm.netlify.app](https://stevengvan-basic-crm.netlify.app) Please do not add actual information to the application as this project was only made for learning.
 
-Note that the data will not load at first when first visiting the site due to the server needing to startup in Render. It may take up to two mintues for the server to go live.
+## From Render to Adaptable
+
+So far from testing, hosting on Adaptable does not require waiting until the server fully loads up like Render.
 
 ## Running the app locally
 
@@ -65,4 +67,4 @@ Then run the command below to preview the build:
 npm run preview
 ```
 
-To deploy and host your own version of the application, you can use Render for the backend to create a web service and Netlify for the frontend hosting your static site. Note that you will need to whitelist the server's IP address hosting your backend to MongoDB (For Render: [Find IP addresses for hosted backend on Render](https://render.com/docs/static-outbound-ip-addresses))
+To deploy and host your own version of the application, you can use Render or Adaptable for the backend to create a web service and Netlify for the frontend hosting your static site. Note that you will need to whitelist the server's IP address hosting your backend to MongoDB. Render allows users to get static IP addresses for their hosted app to whitelist (For Render: [Find IP addresses for hosted backend on Render](https://render.com/docs/static-outbound-ip-addresses)). However for Adaptable they do not provide static IP addresses, so users will need to allow access to all networks.
