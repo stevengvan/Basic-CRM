@@ -18,7 +18,7 @@ If forking the repo, note that frontend and backend components of the app are se
 To run the app locally, it is recommended to have two terminals opened to save time. Users must first navigate to the server folder and then enter
 
 ```sh
-npm run start
+npm run dev
 ```
 
 in the terminal to start the server. Then users can navigate to the client folder and enter
