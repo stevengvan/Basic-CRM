@@ -1,5 +1,5 @@
 import axios from "axios";
-const baseURL = "https://basic-crm-server.adaptable.app";
+const baseURL = "https://basic-crm-server.adaptable.app/customers";
 // const baseURL = "http://localhost:3000/customers";
 
 export default {
