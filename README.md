@@ -4,6 +4,8 @@ A simple customer relation management system that allows the user to add, remove
 
 ## Demo
 
+**ATTENTION: Adaptable no longer provides free tier for hosting as of Sept. 23, 2024. There are no plans to continue hosting the backend elsewhere**
+
 A website was made that deploys the repo. It can be found in the following link:
 [https://stevengvan-basic-crm.netlify.app](https://stevengvan-basic-crm.netlify.app) Please do not add actual information to the application as this project was only made for learning.
 
